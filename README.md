@@ -1,3 +1,6 @@
+This react app is for practicing react hooks
+#React hooks Tutorial
+
 ### `npm start`
 
 Runs the app in the development mode.\
