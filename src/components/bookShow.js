@@ -1,11 +1,13 @@
 import { useState } from "react";
 import BookEdit from "./bookEdit";
+import UseBooksContext from "../hooks/useBooksContext";
 
-function BookShow({ book, onDelete, updateBook }) {
+function BookShow({ book }) {
   const [toggleEdit, setToggleEdit] = useState(false);
+  const { deleteBookById } = UseBooksContext();
   
   const handleDelete = () => {
-    onDelete(book.id);
+    deleteBookById(book.id);
   }
 
   const handleEditToggle = () => {
@@ -14,7 +16,7 @@ function BookShow({ book, onDelete, updateBook }) {
 
   let content = <h3>{ book.title }</h3>
   if(toggleEdit) {
-    content = <BookEdit book={book} updateBook={updateBook} setToggleEdit={setToggleEdit} />
+    content = <BookEdit book={book} setToggleEdit={setToggleEdit} />
   }
 
   return (<div className="book-show">
